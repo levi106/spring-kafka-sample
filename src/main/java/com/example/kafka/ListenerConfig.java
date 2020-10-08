@@ -34,7 +34,7 @@ public class ListenerConfig {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "5");
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "10");
         props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
         props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
         props.put(SaslConfigs.SASL_JAAS_CONFIG, jaasConfig);
@@ -53,7 +53,7 @@ public class ListenerConfig {
         factory.setBatchListener(true);
         factory.getContainerProperties().setAckMode(AckMode.MANUAL_IMMEDIATE);
         factory.getContainerProperties().setSyncCommits(true);
-        factory.getContainerProperties().setPollTimeout(1000);
+        factory.getContainerProperties().setPollTimeout(5000);
         return factory;
     }
 }
